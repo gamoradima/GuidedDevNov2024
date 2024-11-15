@@ -5,7 +5,16 @@
 			<Item Name="Caption" Value="Realty form page" />
 			<Item Name="LocalizableStrings.addRecord_0yb44sx_caption.Value" Value="Add new" />
 			<Item Name="LocalizableStrings.addRecord_14o9fki_caption.Value" Value="Add new" />
+			<Item Name="LocalizableStrings.addRecord_8htigev_caption.Value" Value="Add new" />
 			<Item Name="LocalizableStrings.addRecord_fsgnxey_caption.Value" Value="Add new" />
+			<Item Name="LocalizableStrings.addRecord_vfitoub_caption.Value" Value="Add new" />
+			<Item Name="LocalizableStrings.AreaCannotBeLess.Value" Value="Area cannot be less than 100 sq ft" />
+			<Item Name="LocalizableStrings.Button_fslr5v0_caption.Value" Value="Push me!" />
+			<Item Name="LocalizableStrings.FutureDateWarning.Value" Value="Promotion date cannot be in past" />
+			<Item Name="LocalizableStrings.MyLocString.Value" Value="Some localized value!" />
+			<Item Name="LocalizableStrings.NumberInput_75fqljy_label.Value" Value="Number" />
+			<Item Name="LocalizableStrings.Percent_label.Value" Value="Comm. percent" />
+			<Item Name="LocalizableStrings.PriceCannotBeLess.Value" Value="Price cannot be less than 50.0 USD" />
 		</Items>
 	</Group>
 </Resources>
