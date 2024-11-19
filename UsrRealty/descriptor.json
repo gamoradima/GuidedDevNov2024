@@ -3,7 +3,7 @@
     "UId": "28947f76-d655-43f4-8e95-120655c79855",
     "Name": "UsrRealty",
     "Type": 1,
-    "ModifiedOnUtc": "\/Date(1632313759000)\/",
+    "ModifiedOnUtc": "\/Date(1731953272000)\/",
     "Maintainer": "Customer",
     "ProjectPath": "Files/UsrRealty.csproj",
     "DependsOn": [
@@ -12,6 +12,17 @@
         "PackageVersion": "7.8.0",
         "Name": "CrtCore",
         "Type": 1
+      },
+      {
+        "UId": "2ecba2bd-b810-47a5-a1b1-08c888529d6c",
+        "PackageVersion": "7.8.0",
+        "Name": "CrtCustomer360App",
+        "Type": 1
+      },
+      {
+        "UId": "90cfe1be-635b-4ea1-8558-c0bb5ba4ee86",
+        "PackageVersion": "7.8.0",
+        "Name": "Calendar"
       }
     ]
   }
