@@ -1,4 +1,4 @@
-define("UsrRealty_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEMA_ARGS*/()/**SCHEMA_ARGS*/ {
+define("UsrRealty_FormPage", /**SCHEMA_DEPS*/["@creatio-devkit/common", "RightUtilities"]/**SCHEMA_DEPS*/, function/**SCHEMA_ARGS*/(sdk, RightUtilities)/**SCHEMA_ARGS*/ {
 	return {
 		viewConfigDiff: /**SCHEMA_VIEW_CONFIG_DIFF*/[
 			{
@@ -12,6 +12,13 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 					"tabTitleColor": "auto",
 					"underlineSelectedTabColor": "auto",
 					"headerBackgroundColor": "auto"
+				}
+			},
+			{
+				"operation": "merge",
+				"name": "GeneralInfoTab",
+				"values": {
+					"iconPosition": "only-text"
 				}
 			},
 			{
@@ -89,6 +96,22 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 				"parentName": "Button_6a4cc64",
 				"propertyName": "menuItems",
 				"index": 0
+			},
+			{
+				"operation": "insert",
+				"name": "RunWebServiceMenuItem",
+				"values": {
+					"type": "crt.MenuItem",
+					"caption": "#ResourceString(MenuItem_dqkgym3_caption)#",
+					"visible": true,
+					"clicked": {
+						"request": "usr.RunWebServiceRequest"
+					},
+					"icon": "bars-button-icon"
+				},
+				"parentName": "Button_6a4cc64",
+				"propertyName": "menuItems",
+				"index": 1
 			},
 			{
 				"operation": "insert",
@@ -842,6 +865,40 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 				"parentName": "VisitsGridDetail",
 				"propertyName": "bulkActions",
 				"index": 2
+			},
+			{
+				"operation": "insert",
+				"name": "SecretTabContainer",
+				"values": {
+					"type": "crt.TabContainer",
+					"items": [],
+					"caption": "#ResourceString(TabContainer_wt078a6_caption)#",
+					"iconPosition": "only-text",
+					"visible": true
+				},
+				"parentName": "Tabs",
+				"propertyName": "items",
+				"index": 1
+			},
+			{
+				"operation": "insert",
+				"name": "GridContainer_49fb0ht",
+				"values": {
+					"type": "crt.GridContainer",
+					"items": [],
+					"rows": "minmax(32px, max-content)",
+					"columns": [
+						"minmax(32px, 1fr)",
+						"minmax(32px, 1fr)"
+					],
+					"gap": {
+						"columnGap": "large",
+						"rowGap": 0
+					}
+				},
+				"parentName": "SecretTabContainer",
+				"propertyName": "items",
+				"index": 0
 			}
 		]/**SCHEMA_VIEW_CONFIG_DIFF*/,
 		viewModelConfigDiff: /**SCHEMA_VIEW_MODEL_CONFIG_DIFF*/[
@@ -992,6 +1049,11 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 								}
 							}
 						}
+					},
+					"PageParameters_UsrBooleanParameter1_v059wh0": {
+						"modelConfig": {
+							"path": "PageParameters.UsrBooleanParameter1"
+						}
 					}
 				}
 			},
@@ -1079,18 +1141,44 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 				handler: async (request, next) => {
 					console.log("Button works!!!");
                     console.log(request);
-					Terrasoft.showInformation("My button was pressed.");
+					//Terrasoft.showInformation("My button was pressed.");
 					var price = await request.$context.PDS_UsrPrice_67yke49;
 					console.log("Price = " + price);
 					request.$context.PDS_UsrArea_vsh48n6 = price * 0.2;
 
                     let s = await request.$context.Resources.Strings.MyLocString;
                     console.log(s);
-                  
+
+                    var config = {
+    					operation: "HasAccessToSecretTab"
+    				};
+                    var result;
+    				RightUtilities.checkCanExecuteOperation(config, function (response) 
+                                                            {result = response; 
+                                                             request.$context.PageParameters_UsrBooleanParameter1_v059wh0 = response;} , request);
+                    console.log("result = " + result);
+
 					/* Call the next handler if it exists and return its result. */
 					return next?.handle(request);
 				}
 			},
+            {
+                request: "crt.HandleViewModelInitRequest",
+                /* Custom implementation of a system request handler. */
+                handler: async (request, next) => {
+                /*    var config = {
+    					operation: "HasAccessToSecretTab"
+    				};
+    				RightUtilities.checkCanExecuteOperation(config, function (response) {
+                          const result = response;
+                          request.$context.PageParameters_UsrBooleanParameter1_v059wh0 = response;
+                        } , request);
+*/
+                  /* Call the next handler if it exists and return its result. */
+                  return next?.handle(request);
+                }
+            },
+          
 			{
 				request: "crt.HandleViewModelAttributeChangeRequest",
 				/* The custom implementation of the system query handler. */
@@ -1102,6 +1190,64 @@ define("UsrRealty_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 						var commission = price * percent / 100;
 						request.$context.PDS_UsrCommission_7nu9b8w = commission;
 					}
+					/* Call the next handler if it exists and return its result. */
+
+                  const OnceExecuted = await request.$context.OnceExecuted;
+                  
+                    if (!OnceExecuted) {
+                      var config = {
+                          operation: "HasAccessToSecretTab"
+                      };
+                      RightUtilities.checkCanExecuteOperation(config, function (response) {
+                            const result = response;
+                            request.$context.PageParameters_UsrBooleanParameter1_v059wh0 = response;
+                          } , request);
+                      request.$context.OnceExecuted = true;
+                    }
+                  
+					return next?.handle(request);
+				}
+			},
+			{
+				request: "usr.RunWebServiceRequest",
+				/* Implementation of the custom query handler. */
+				handler: async (request, next) => {
+					console.log("Run web service call works...");
+
+					// get id from type lookup type object
+					var typeObject = await request.$context.PDS_UsrType_ksfr0a8;
+					var typeId = "";
+					if (typeObject) {
+						typeId = typeObject.value;
+					}
+
+					// get id from type lookup offer type object
+					var offerTypeObject = await request.$context.PDS_UsrOfferType_ab8hkl4;
+					var offerTypeId = "";
+					if (offerTypeObject) {
+						offerTypeId = offerTypeObject.value;
+					}
+
+					/* Create an instance of the HTTP client from @creatio-devkit/common. */
+					const httpClientService = new sdk.HttpClientService();
+
+					/* Specify the URL to run web service method. */
+					const baseUrl = Terrasoft.utils.uri.getConfigurationWebServiceBaseUrl();
+					const transferName = "rest";
+					const serviceName = "RealtyService";
+					const methodName = "GetMaxPriceByTypeId";
+					const endpoint = Terrasoft.combinePath(baseUrl, transferName, serviceName, methodName);
+					
+					//const endpoint = "http://localhost/D1_Studio/0/rest/RealtyService/GetMaxPriceByTypeId";
+					/* Send a POST HTTP request. The HTTP client converts the response body from JSON to a JS object automatically. */
+					var params = {
+						realtyTypeId: typeId,
+						realtyOfferTypeId: offerTypeId
+					};
+					const response = await httpClientService.post(endpoint, params);
+					
+					console.log("response max price = " + response.body.GetMaxPriceByTypeIdResult);
+					
 					/* Call the next handler if it exists and return its result. */
 					return next?.handle(request);
 				}

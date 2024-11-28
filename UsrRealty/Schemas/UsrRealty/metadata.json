@@ -17,6 +17,7 @@
 + MetaData.Schema.D29 "null"
 + MetaData.Schema.D30 "null"
 + MetaData.Schema.D31 "null"
++ MetaData.Schema.D38 true
 + MetaData.Schema.D4 "41154911-6f63-4192-af73-6ea543efa9ba"
 + MetaData.Schema.D2 {
   "UId": "41154911-6f63-4192-af73-6ea543efa9ba",
@@ -140,6 +141,10 @@
   "S4": "09fce1f8-515c-4296-95cd-8cd93f79a6cf",
   "E6": true,
   "E20": true,
+  "E12": {
+    "FB1": 1,
+    "FB2": "98be2e74-f36b-1410-fa98-00155d043204"
+  },
   "E17": "UsrCountryId",
   "E18": "UsrCountryName"
 }

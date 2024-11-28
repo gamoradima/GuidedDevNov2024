@@ -1,0 +1,24 @@
+﻿{
+  "PackageData": [
+    {
+      "Row": [
+        {
+          "SchemaColumnUId": "ae0e45ca-c495-4fe7-a39d-3ab7278e1617",
+          "Value": "91e28d11-edbb-4717-a5c2-9debdf191685"
+        },
+        {
+          "SchemaColumnUId": "13aad544-ec30-4e76-a373-f0cff3202e24",
+          "Value": "ShowSecretRealtyTabFeature"
+        },
+        {
+          "SchemaColumnUId": "e04c95c8-b8d3-5e4d-c0b4-789430916f33",
+          "Value": 0
+        },
+        {
+          "SchemaColumnUId": "e80190a5-03b2-4095-90f7-a193a960adee",
+          "Value": "\/Date(1732124755844+0200)\/"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+﻿{
+  "PackageData": [
+    {
+      "Row": [
+        {
+          "SchemaColumnUId": "ae0e45ca-c495-4fe7-a39d-3ab7278e1617",
+          "Value": "21112f81-a26a-418b-b73f-1a44600d6973"
+        },
+        {
+          "SchemaColumnUId": "631177f9-f983-4787-a7aa-ced1b24ba918",
+          "Value": "91e28d11-edbb-4717-a5c2-9debdf191685",
+          "DisplayValue": "ShowSecretRealtyTabFeature"
+        },
+        {
+          "SchemaColumnUId": "82b72e0d-42a3-4857-8445-0279b66e7e2c",
+          "Value": 1
+        },
+        {
+          "SchemaColumnUId": "9ba728be-e5cd-451d-a74a-c4a047c374b3",
+          "Value": "6db9fae8-47ff-4f80-9512-69dd7033d4a8",
+          "DisplayValue": "Support Team"
+        },
+        {
+          "SchemaColumnUId": "e80190a5-03b2-4095-90f7-a193a960adee",
+          "Value": "\/Date(1732124768076+0200)\/"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+﻿{
+  "Descriptor": {
+    "UId": "52f8b58b-9e6f-4ac6-8113-82f3159903e4",
+    "Name": "UsrAutoAddRealtyVisitsProcess",
+    "ModifiedOnUtc": "\/Date(1732116572000)\/",
+    "ManagerName": "ProcessSchemaManager",
+    "Caption": "Auto add realty visits",
+    "DependsOn": []
+  }
+}

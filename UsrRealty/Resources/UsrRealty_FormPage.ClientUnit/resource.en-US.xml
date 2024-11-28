@@ -19,11 +19,14 @@
 			<Item Name="LocalizableStrings.GridDetailRefreshBtn_fwc0eg6_caption.Value" Value="Refresh" />
 			<Item Name="LocalizableStrings.GridDetailSearchFilter_jmshckg_placeholder.Value" Value="Search" />
 			<Item Name="LocalizableStrings.GridDetailSettingsBtn_ooxvfni_caption.Value" Value="Actions" />
+			<Item Name="LocalizableStrings.MenuItem_dqkgym3_caption.Value" Value="Run max price calculation web service" />
 			<Item Name="LocalizableStrings.MenuItem_dxyg76s_caption.Value" Value="Calculate average price process" />
 			<Item Name="LocalizableStrings.MyLocString.Value" Value="Some localized value!" />
 			<Item Name="LocalizableStrings.NumberInput_75fqljy_label.Value" Value="Number" />
 			<Item Name="LocalizableStrings.Percent_label.Value" Value="Comm. percent" />
 			<Item Name="LocalizableStrings.PriceCannotBeLess.Value" Value="Price cannot be less than 50.0 USD" />
+			<Item Name="LocalizableStrings.TabContainer_wt078a6_caption.Value" Value="SECRET TAB" />
+			<Item Name="Parameters.4d9d318c-b6dd-b49e-a425-ba27e1430311.Caption" Value="SecretTabVisible" />
 		</Items>
 	</Group>
 </Resources>

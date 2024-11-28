@@ -1,0 +1,10 @@
+﻿{
+  "Descriptor": {
+    "UId": "a4e39429-8fdc-45b0-972e-1c27ac66b50e",
+    "Name": "UsrAddGorestContactSubprocess",
+    "ModifiedOnUtc": "\/Date(1732294762000)\/",
+    "ManagerName": "ProcessSchemaManager",
+    "Caption": "Add GoRest Contact Subprocess",
+    "DependsOn": []
+  }
+}
